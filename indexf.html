@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Парфюмер»: подготовка к чтению</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4ecdd;
+    --bg-tint:#efe5d3;
+    --text:#2a2219;
+    --muted:#6f6150;
+    --accent:#8c2f2a;
+    --accent-soft:#b5534a;
+    --rule:#ddd0b8;
+    --quote:#3a2f22;
+    --sel:#e6cfa0;
+  }
+  :root[data-theme="dark"]{
+    --bg:#1b1713;
+    --bg-tint:#221d17;
+    --text:#e9dcc6;
+    --muted:#a7967e;
+    --accent:#d38a5f;
+    --accent-soft:#e0a079;
+    --rule:#3a3128;
+    --quote:#d8c8ac;
+    --sel:#4a3a24;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1b1713;
+      --bg-tint:#221d17;
+      --text:#e9dcc6;
+      --muted:#a7967e;
+      --accent:#d38a5f;
+      --accent-soft:#e0a079;
+      --rule:#3a3128;
+      --quote:#d8c8ac;
+      --sel:#4a3a24;
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, var(--bg-tint) 0%, transparent 60%);
+    color:var(--text);
+    font-family:"Lora", Georgia, "Times New Roman", serif;
+    font-size:19px;
+    line-height:1.72;
+    font-weight:400;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* тонкое зерно поверх фона */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-theme="dark"] body::before{opacity:.05;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body::before{opacity:.05;}}
+
+  ::selection{background:var(--sel);}
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    max-width:40rem;
+    margin:0 auto;
+    padding:clamp(1.3rem,4vw,2.4rem) clamp(1.15rem,5vw,1.6rem) 5rem;
+  }
+
+  /* переключатель темы */
+  .toggle{
+    position:absolute;
+    top:clamp(1rem,3.5vw,1.8rem);
+    right:clamp(1rem,5vw,1.6rem);
+    z-index:3;
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    background:transparent;
+    border:1px solid var(--rule);
+    color:var(--muted);
+    border-radius:999px;
+    padding:.34rem .7rem;
+    font-family:"Lora",serif;
+    font-size:.74rem;
+    letter-spacing:.04em;
+    cursor:pointer;
+    transition:border-color .25s, color .25s;
+  }
+  .toggle:hover{border-color:var(--accent-soft);color:var(--text);}
+  .toggle svg{width:14px;height:14px;display:block;}
+
+  header.masthead{
+    padding-top:clamp(3.4rem,13vw,5.2rem);
+    margin-bottom:2.6rem;
+  }
+  .kicker{
+    font-size:.78rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 1.1rem;
+    font-weight:600;
+  }
+  h1{
+    font-family:"Prata", Georgia, serif;
+    font-weight:400;
+    font-size:clamp(2.5rem,10vw,3.9rem);
+    line-height:1.05;
+    letter-spacing:.005em;
+    margin:0 0 1.2rem;
+    color:var(--text);
+  }
+  h1 .q{color:var(--accent);}
+  .lead{
+    font-size:clamp(1.12rem,3.6vw,1.3rem);
+    line-height:1.56;
+    color:var(--quote);
+    margin:0 0 1.8rem;
+    font-weight:500;
+  }
+  .meta{
+    border-top:1px solid var(--rule);
+    padding-top:1rem;
+    font-size:.86rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  .meta b{font-weight:600;color:var(--text);font-style:italic;font-family:"Lora",serif;}
+
+  h2{
+    font-family:"Prata", Georgia, serif;
+    font-weight:400;
+    font-size:clamp(1.5rem,5.5vw,1.9rem);
+    line-height:1.2;
+    margin:2.9rem 0 1rem;
+    color:var(--text);
+  }
+  h2::before{
+    content:"";
+    display:block;
+    width:2.2rem;
+    height:2px;
+    background:var(--accent);
+    margin-bottom:1.1rem;
+    opacity:.75;
+  }
+
+  p{margin:0 0 1.25rem;}
+  article p a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+
+  /* буквица */
+  .dropcap::first-letter{
+    font-family:"Prata",serif;
+    float:left;
+    font-size:3.6em;
+    line-height:.78;
+    padding:.06em .1em 0 0;
+    color:var(--accent);
+  }
+
+  blockquote{
+    margin:2.1rem 0;
+    padding:.2rem 0 .2rem 1.3rem;
+    border-left:3px solid var(--accent);
+    font-size:clamp(1.22rem,4.4vw,1.5rem);
+    line-height:1.4;
+    font-style:italic;
+    color:var(--quote);
+    font-weight:500;
+  }
+  blockquote cite{
+    display:block;
+    margin-top:.7rem;
+    font-size:.84rem;
+    font-style:normal;
+    letter-spacing:.03em;
+    color:var(--muted);
+  }
+
+  strong{font-weight:600;}
+  em{font-style:italic;}
+
+  .summary{
+    margin-top:3.4rem;
+    padding:1.8rem clamp(1.3rem,5vw,2rem) 2rem;
+    background:var(--bg-tint);
+    border:1px solid var(--rule);
+    border-radius:4px;
+  }
+  .summary h2{margin-top:0;}
+  .summary h2::before{display:none;}
+  .summary ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    counter-reset:s;
+  }
+  .summary li{
+    position:relative;
+    padding-left:2.1rem;
+    margin-bottom:1.05rem;
+    font-size:1.02rem;
+    line-height:1.55;
+  }
+  .summary li:last-child{margin-bottom:0;}
+  .summary li::before{
+    counter-increment:s;
+    content:counter(s);
+    position:absolute;
+    left:0;
+    top:.08em;
+    font-family:"Prata",serif;
+    color:var(--accent);
+    font-size:1.15rem;
+  }
+
+  .colophon{
+    margin-top:3.2rem;
+    padding-top:1.3rem;
+    border-top:1px solid var(--rule);
+    font-size:.8rem;
+    color:var(--muted);
+    line-height:1.6;
+    font-style:italic;
+  }
+
+  /* появление */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+    .masthead .kicker{animation-delay:.05s;}
+    .masthead h1{animation-delay:.14s;}
+    .masthead .lead{animation-delay:.26s;}
+    .masthead .meta{animation-delay:.38s;}
+    article{animation-delay:.5s;}
+    @keyframes rise{to{opacity:1;transform:none;}}
+  }
+
+  @media (max-width:430px){
+    body{font-size:17.5px;line-height:1.7;}
+    blockquote{padding-left:1rem;}
+  }
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="Переключить тему" type="button">
+  <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+  <span id="themeLabel">тьма</span>
+</button>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker reveal">подготовка к&nbsp;чтению · без&nbsp;спойлеров</p>
+    <h1 class="reveal">«<span class="q">Парфюмер</span>»<br>как его читать</h1>
+    <p class="lead reveal">Эту книгу стоит читать не&nbsp;как триллер о&nbsp;маньяке, а&nbsp;как ироничную притчу о&nbsp;гении без&nbsp;души, собранную из&nbsp;чужих цитат. Следите не&nbsp;за&nbsp;тем, что сделает герой, а&nbsp;за&nbsp;тем, как рассказчик и&nbsp;запахи соблазняют вас&nbsp;самих.</p>
+    <p class="meta reveal">по&nbsp;книге <b>Патрик Зюскинд — «Парфюмер» (1985)</b><br>≈ 8&nbsp;минут чтения</p>
+  </header>
+
+  <article class="reveal">
+
+    <h2>Не&nbsp;роман про&nbsp;маньяка</h2>
+    <p class="dropcap">Самое поверхностное прочтение навязано русским названием. В&nbsp;оригинале роман называется «Das&nbsp;Parfum» — просто «Аромат»; «Парфюмера» придумала переводчица, и&nbsp;этот сдвиг сразу уводит читателя в&nbsp;раздел маньячной литературы. Между&nbsp;тем сексуальной или садистской мотивации у&nbsp;героя нет, а&nbsp;на&nbsp;сами преступления отведено удивительно мало текста. Подзаголовок обещает детектив, но&nbsp;интриги почти нет.</p>
+    <p>Это и&nbsp;не&nbsp;реалистичный исторический роман — скорее сказка на&nbsp;точном историческом фоне. Главная тема здесь не&nbsp;убийства, а&nbsp;критика культа гения и&nbsp;рациональности Просвещения. Абсолютный гений, которому чужды понятия этической и&nbsp;моральной природы; чего хочет человек, никогда не&nbsp;знавший любви, — вот моральный центр книги.</p>
+
+    <h2>Книга, собранная из&nbsp;книг</h2>
+    <p>Первая фраза романа — не&nbsp;вступление, а&nbsp;цитата. Она перекликается и&nbsp;с&nbsp;гофмановским ювелиром Кардильяком, «одним из&nbsp;искуснейших и&nbsp;вместе с&nbsp;тем страннейших людей своего времени», и&nbsp;с&nbsp;клейстовским Кольхаасом. Книга сделана из&nbsp;книг — и&nbsp;это её&nbsp;тема, а&nbsp;не&nbsp;её&nbsp;грех. Гренуй собирает чужие запахи так&nbsp;же, как Зюскинд собирает чужие тексты, и&nbsp;«оригинальный гений» в&nbsp;итоге оказывается иллюзией.</p>
+    <p>Зюскинд и&nbsp;сам в&nbsp;этом признавался: в&nbsp;одном эссе он&nbsp;иронически уверяет, что из-за&nbsp;плохой памяти не&nbsp;помнит прочитанного, а&nbsp;это будто&nbsp;бы избавляет от&nbsp;«страха влияния». Отсюда знаменитая колкость критика Штадельмайера: «Гренуй грабит мёртвые кожи, Зюскинд — мёртвых поэтов». Защитники отвечают, что заимствование и&nbsp;есть предмет романа. Сквозь текст проступают Гофман, Клейст, Гёте, Гюго, пародия на&nbsp;«дни творения» из&nbsp;Книги&nbsp;Бытия — целый палимпсест.</p>
+
+    <h2>Рассказчику нельзя верить до&nbsp;конца</h2>
+    <p>Повествует всеведущий рассказчик в&nbsp;духе XIX&nbsp;века, но&nbsp;с&nbsp;постмодернистским подвохом. Он&nbsp;вмешивается в&nbsp;действие и&nbsp;говорит «мы», порой включая в&nbsp;это «мы» читателя. Он&nbsp;иронизирует над&nbsp;всеми: у&nbsp;матери героя «ещё почти все зубы во&nbsp;рту» и, «кроме подагры, сифилиса и&nbsp;лёгкой чахотки», никаких серьёзных болезней. Он&nbsp;сознательно анахроничен — допускает чудеса, но&nbsp;рассуждает о&nbsp;бактериях. И&nbsp;он&nbsp;то&nbsp;клеймит героя чудовищем, то&nbsp;сюсюкает с&nbsp;ним: «Спокойно, Жан-Батист!&nbsp;Спокойно, милый!».</p>
+    <p>Из-за&nbsp;этой качающейся дистанции с&nbsp;героем нельзя ни&nbsp;слиться, ни&nbsp;отмахнуться от&nbsp;него. Если вы&nbsp;ловите себя на&nbsp;восхищении — это часть эксперимента над&nbsp;соблазном гения.</p>
+
+    <blockquote>Кто владеет запахом, тот владеет сердцами людей.<cite>мысль героя в&nbsp;тот момент, когда он&nbsp;осознаёт свою цель</cite></blockquote>
+
+    <p>Слов для&nbsp;запахов в&nbsp;языке почти нет, и&nbsp;Зюскинд обходится тремя приёмами: каталогами, музыкальными сравнениями («оркестр из&nbsp;тысячи музыкантов»; новые духи рядом со&nbsp;старыми — «как симфония против одинокого пиликанья скрипки») и&nbsp;синестезией («бальная ночь запахов с&nbsp;гигантским бриллиантовым ароматическим фейерверком»). И&nbsp;ещё одно, что обычно пропускают, — юмор: первые две части очень смешные, и&nbsp;кто читает роман как мрачный хоррор, теряет половину удовольствия.</p>
+
+    <h2>Что держать в&nbsp;голове на&nbsp;входе</h2>
+    <p>Париж XVIII&nbsp;века без&nbsp;канализации; Кладбище&nbsp;невинных — «самое вонючее место всего королевства». Роман сознательно помещён на&nbsp;перелом, который историк Корбен назвал «обонятельной революцией», когда врачи начали войну с&nbsp;«миазмами». Город&nbsp;Грас — реальная парфюмерная столица, техника (дистилляция, анфлераж) настоящая, а&nbsp;большинство персонажей вымышлены.</p>
+    <p>Один символ стоит отслеживать с&nbsp;самого начала — <strong>клещ</strong>. Одинокий, свернувшийся в&nbsp;себя, годами сидящий на&nbsp;дереве в&nbsp;ожидании своего шанса, он&nbsp;возвращается по&nbsp;ходу книги как тотемное животное героя: минимум потребностей, максимум цепкости.</p>
+
+    <h2>Какой перевод и&nbsp;начитку брать</h2>
+    <p>Перевод Эллы&nbsp;Венгеровой — классический и&nbsp;по&nbsp;сути единственный. Как литература он&nbsp;хорош: живой ритм, точно переданная ирония «старинной хроники», — именно в&nbsp;нём роман стал в&nbsp;России культовым. Как парфюмерный справочник он&nbsp;слаб (эссенции вместо абсолю, «молочная бутыль» вместо «смесительной»), но&nbsp;реальной альтернативы нет.</p>
+    <p>Из&nbsp;аудио берите начитку Павла&nbsp;Конышева («Азбука», 11&nbsp;ч&nbsp;40&nbsp;мин) — единственную широко лицензированную и&nbsp;ровную, — либо версию Алексея&nbsp;Борзунова (около&nbsp;10&nbsp;ч): самые восторженные отзывы и&nbsp;больше артистизма, но&nbsp;распространяется в&nbsp;основном неофициально. Коротко: важна легальность — Конышев, важен артистизм — Борзунов. Начитку Клюквина найти не&nbsp;удалось; скорее всего, её&nbsp;нет.</p>
+
+    <h2>Чего ждать от&nbsp;чтения</h2>
+    <p>Около&nbsp;семи часов чтения или&nbsp;10–12&nbsp;часов аудио. Главы короткие, в&nbsp;конце каждой — монтажный «крючок», так&nbsp;что книга читается почти как сериал. Первая, парижская часть плотная, смешная и&nbsp;динамичная.</p>
+    <p>Где буксуют — чаще всего в&nbsp;горной части: действия почти нет, долгие описания «внутреннего царства». Продираться стоит: это сознательное замедление и&nbsp;смысловой центр книги, где сатира превращается в&nbsp;притчу. Натурализма много — смрад, грязь, болезни описаны смачно; насилие подано отстранённо, но&nbsp;сама идея неприятна, и&nbsp;финал многих шокирует. И&nbsp;главное: не&nbsp;смотрите фильм и&nbsp;не&nbsp;читайте пересказы заранее — даже аннотации многих изданий выдают ключевые повороты.</p>
+
+    <div class="summary">
+      <h2>Если коротко</h2>
+      <ul>
+        <li>Это не&nbsp;триллер о&nbsp;маньяке, а&nbsp;ироничная пародия на&nbsp;культ гения и&nbsp;на&nbsp;разум Просвещения; читайте ради рассказчика и&nbsp;языка, а&nbsp;не&nbsp;ради сюжета.</li>
+        <li>Роман намеренно собран из&nbsp;чужих текстов — в&nbsp;этом его замысел; ловите отголоски Гофмана, Клейста, Гёте.</li>
+        <li>Берите перевод Венгеровой и&nbsp;начитку Конышева или&nbsp;Борзунова; перетерпите медленную горную часть — в&nbsp;ней вся соль.</li>
+      </ul>
+    </div>
+
+    <p class="colophon">Установка на&nbsp;чтение: относитесь к&nbsp;«Парфюмеру» как к&nbsp;игре в&nbsp;«великую биографию». Тогда книга становится тем, чем задумана, — экспериментом над&nbsp;вашей собственной податливостью гению.</p>
+
+  </article>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById('themeToggle');
+  var label=document.getElementById('themeLabel');
+  function current(){
+    var set=root.getAttribute('data-theme');
+    if(set) return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  }
+  function sync(){
+    label.textContent = current()==='dark' ? 'свет' : 'тьма';
+  }
+  try{
+    var saved=localStorage.getItem('parfumer-theme');
+    if(saved==='dark'||saved==='light') root.setAttribute('data-theme',saved);
+  }catch(e){}
+  sync();
+  btn.addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('parfumer-theme',next);}catch(e){}
+    sync();
+  });
+})();
+</script>
+</body>
+</html>

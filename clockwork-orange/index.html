@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Заводной апельсин»: инструкция к чтению — читательские заметки</title>
+<meta name="description" content="Почему это не роман о насилии, а спор о свободе воли — и что знать заранее: какой перевод брать, зачем нужен надсат и почему важна 21-я глава.">
+<meta property="og:title" content="«Заводной апельсин»: инструкция к чтению">
+<meta property="og:description" content="Почему это не роман о насилии, а спор о свободе воли — и что знать заранее: какой перевод брать, зачем нужен надсат и почему важна 21-я глава.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Палитра и шрифты общие с оглавлением сайта: тёплая бумага, акцент под «апельсин» */
+:root{
+  --bg:#f4ecdd; --fg:#2a211a; --muted:#6f6150; --line:#ddd0b8;
+  --accent:#8c2f2a; --card:#efe5d2; --card-line:#e2d4bb;
+  --f-display:"Prata",Georgia,serif;
+  --f-body:"Lora",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1b1713; --fg:#ece2d2; --muted:#a7967e; --line:#3a3127;
+  --accent:#d98f52; --card:#231d17; --card-line:#393025;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1b1713; --fg:#ece2d2; --muted:#a7967e; --line:#3a3127;
+  --accent:#d98f52; --card:#231d17; --card-line:#393025;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);
+  font:400 19px/1.75 var(--f-body);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-wrap:break-word}
+
+.wrap{max-width:34rem;margin:0 auto;padding-inline:22px;padding-block:28px 96px}
+
+/* Переключатель темы */
+.topbar{max-width:34rem;margin:0 auto;padding:18px 22px 0;
+  display:flex;justify-content:flex-end}
+.toggle{appearance:none;background:transparent;border:1px solid var(--line);
+  color:var(--muted);font:400 12px/1 var(--f-body);letter-spacing:.14em;
+  text-transform:uppercase;padding:8px 13px;border-radius:999px;cursor:pointer;
+  transition:color .2s ease,border-color .2s ease}
+.toggle:hover{color:var(--accent);border-color:var(--accent)}
+.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Шапка */
+header{margin:30px 0 46px}
+.eyebrow{font:400 12px/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px}
+h1{font-family:var(--f-display);font-weight:400;
+  font-size:clamp(34px,8vw,52px);line-height:1.08;margin:0 0 22px;
+  letter-spacing:-.01em;text-wrap:balance}
+.lead{margin:0;font-size:20px;line-height:1.55;color:var(--fg)}
+.meta{margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line);
+  font-size:14px;letter-spacing:.02em;color:var(--muted)}
+.meta .sep{margin:0 .5em}
+
+/* Текст */
+article h2{font-family:var(--f-display);font-weight:400;
+  font-size:clamp(24px,5vw,31px);line-height:1.18;margin:52px 0 18px;
+  letter-spacing:-.005em;text-wrap:balance}
+article p{margin:0 0 20px}
+article p a{color:var(--accent);text-underline-offset:3px;
+  text-decoration-thickness:1px}
+
+/* Буквица */
+.lede::first-letter{font-family:var(--f-display);float:left;
+  font-size:4.1em;line-height:.82;padding:4px 10px 0 0;color:var(--accent)}
+
+/* Выносные цитаты */
+figure.pull{margin:40px 0;padding:4px 0 4px 24px;border-left:3px solid var(--accent)}
+figure.pull blockquote{margin:0;font-family:var(--f-display);font-weight:400;
+  font-size:clamp(22px,4.4vw,27px);line-height:1.3;color:var(--fg);
+  text-wrap:pretty}
+figure.pull figcaption{margin-top:12px;font-size:14px;font-style:italic;color:var(--muted)}
+
+/* Таблицы */
+.tbl-wrap{margin:30px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.45}
+caption{caption-side:top;text-align:left;font-size:14px;font-style:italic;
+  color:var(--muted);margin-bottom:12px}
+th,td{text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid var(--line);
+  vertical-align:top}
+thead th{font-family:var(--f-body);font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td:first-child,th:first-child{padding-left:0}
+.word{font-weight:500;font-style:italic;white-space:nowrap}
+
+/* Блок «Если коротко» */
+.tldr{margin:56px 0 40px;padding:28px 26px;background:var(--card);
+  border:1px solid var(--card-line);border-radius:12px}
+.tldr h2{margin:0 0 14px;font-size:clamp(21px,4vw,26px)}
+.tldr ul{margin:0;padding-left:22px}
+.tldr li{margin:0 0 12px;padding-left:4px}
+.tldr li:last-child{margin-bottom:0}
+
+/* Подпись */
+.sign{margin:46px 0 0;padding-top:24px;border-top:1px solid var(--line);
+  font-size:17px;font-style:italic;color:var(--muted);line-height:1.6}
+
+@media (max-width:420px){
+  body{font-size:18px}
+  figure.pull{padding-left:18px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  header,article,.tldr,.sign{animation:rise .7s ease both}
+  article{animation-delay:.08s}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="toggle" id="themeToggle" type="button" aria-label="Переключить тему">тема</button>
+</div>
+
+<main class="wrap">
+
+  <article>
+    <header>
+      <p class="eyebrow">Читательские заметки</p>
+      <h1>«Заводной апельсин»: инструкция к чтению</h1>
+      <p class="lead">Короткий роман Бёрджесса читается как история о подростковом насилии, а на деле это богословский спор о свободе воли. Самое полезное знать заранее: берите перевод Бошняка — в нём все 21 глава и надсат латиницей; не бросайте на жаргоне первых страниц; и обязательно дочитайте до последней главы, которую Бёрджесс оставил на выбор читателя.</p>
+      <p class="meta">по книге Энтони Бёрджесса — «Заводной апельсин» (1962)<span class="sep">·</span>примерно 12 минут</p>
+    </header>
+
+    <h2>Что это — и почему у романа две версии</h2>
+    <p class="lede">Роман задуман в 1960-м, написан за полтора года (вопреки легенде о «трёх неделях») и вышел в 1962-м. Послевоенная Британия, первые подростки с деньгами и собственной культурой — тедди-бои, потом моды и рокеры, газетная паника вокруг молодёжной преступности. Бёрджесс не стал писать на их сленге, боясь, что тот быстро устареет, и придумал свой. Материал для языка он привёз из поездки в Ленинград 1961 года, а тёмную сердцевину книги — из собственной биографии: его беременную жену во время войны избила на лондонской улице группа американских дезертиров. Сцена налёта на дом писателя растёт отсюда.</p>
+    <p>У романа две редакции, и это важно. Британское издание 1962 года — 21 глава. Американское 1963-го — двадцать, без финальной главы, зато с глоссарием надсата, которого Бёрджесс не хотел. Кто срезал главу, спорят до сих пор: издатель уверял, что не настаивал, а в рукописи рукой самого автора внизу двадцатой главы стоит «не закончить ли здесь?». Сегодня каноном считается полная, 21-главная версия. Запомните это: именно по укороченному тексту снят фильм Кубрика и сделаны некоторые русские переводы.</p>
+
+    <figure class="pull">
+      <blockquote>«Читателю понадобится не больше пятнадцати страниц, чтобы освоить надсат и упиваться им».</blockquote>
+      <figcaption>Бёрджесс — издателю, обещая, что язык не отпугнёт</figcaption>
+    </figure>
+
+    <h2>О чём книга на самом деле</h2>
+    <p>Это антиутопия и философская притча, но спорит она не с тиранией, а с идеей, что человека можно «починить». Бёрджесс пишет против бихевиоризма — против обещания науки переделать поведение условным рефлексом. За этим стоит старый богословский спор: испорчен ли человек изначально (Августин) или способен к добру сам (Пелагий). Отпавший католик Бёрджесс — на стороне выбора.</p>
+    <p>Главный вопрос романа прямой: что ценнее — добро или способность его выбрать? Человек, лишённый возможности выбрать зло, — ещё человек или уже механизм? Отсюда и название. Это и кокнийское «queer as a clockwork orange» («чудной, как заводной апельсин»), и малайское orang — «человек», так что выходит «заводной человек»: живое, полное сока существо, превращённое в игрушку с ключиком.</p>
+
+    <figure class="pull">
+      <blockquote>«…заводная игрушка, которую заводит Бог, или Дьявол, или — всё чаще — Всемогущее Государство».</blockquote>
+      <figcaption>Бёрджесс о том, кого он называет «заводным апельсином»</figcaption>
+    </figure>
+
+    <h2>Надсат: язык, который сначала бесит</h2>
+    <p>Первые страницы написаны на выдуманном подростковом жаргоне — надсате (от русского «-надцать»). В основе русские слова, сверху цыганские, кокни, воровской жаргон. Зачем это нужно, стоит понять заранее, иначе язык кажется капризом.</p>
+    <p>Во-первых, это защитный экран: через странные слова самые жестокие сцены проходят как сквозь матовое стекло, насилие становится скорее символическим. Во-вторых — и это тонкий ход — пока вы учите надсат, книга проделывает с вами то же, что государство с героем: мягко перепрограммирует. Глоссарий всё это сломал бы, поэтому Бёрджесс был против словаря. Рассказчик вводит слова «accelerando», сам подсказывая перевод: «rooker (a hand, that is)».</p>
+    <p>Русскому читателю тут и проще, и интереснее, чем англичанину. Для того надсат — экзотический шифр, а вы узнаёте слова сразу, и шифр оборачивается комизмом: horrorshow — это и «хорошо», и «шоу ужасов»; gulliver — «голова» и Гулливер разом. Небольшой словарь, чтобы пройти первые главы:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Мини-словарь надсата</caption>
+        <thead><tr><th scope="col">Надсат</th><th scope="col">Источник</th><th scope="col">Значение</th></tr></thead>
+        <tbody>
+          <tr><td class="word">droog</td><td>друг</td><td>друг, член банды</td></tr>
+          <tr><td class="word">horrorshow</td><td>хорошо</td><td>отлично</td></tr>
+          <tr><td class="word">moloko</td><td>молоко</td><td>молоко</td></tr>
+          <tr><td class="word">malchick</td><td>мальчик</td><td>парень</td></tr>
+          <tr><td class="word">devotchka</td><td>девочка</td><td>девушка</td></tr>
+          <tr><td class="word">ptitsa</td><td>птица</td><td>женщина</td></tr>
+          <tr><td class="word">baboochka</td><td>бабушка</td><td>старуха</td></tr>
+          <tr><td class="word">veck</td><td>человек</td><td>человек, тип</td></tr>
+          <tr><td class="word">gulliver</td><td>голова</td><td>голова</td></tr>
+          <tr><td class="word">rooker</td><td>рука</td><td>рука</td></tr>
+          <tr><td class="word">litso</td><td>лицо</td><td>лицо</td></tr>
+          <tr><td class="word">glazzies</td><td>глаза</td><td>глаза</td></tr>
+          <tr><td class="word">viddy</td><td>видеть</td><td>смотреть</td></tr>
+          <tr><td class="word">slooshy</td><td>слушать</td><td>слушать</td></tr>
+          <tr><td class="word">govoreet</td><td>говорить</td><td>говорить</td></tr>
+          <tr><td class="word">tolchock</td><td>толчок</td><td>удар, бить</td></tr>
+          <tr><td class="word">krovvy</td><td>кровь</td><td>кровь</td></tr>
+          <tr><td class="word">Bog</td><td>Бог</td><td>Бог</td></tr>
+          <tr><td class="word">cal</td><td>кал</td><td>дерьмо</td></tr>
+          <tr><td class="word">nadsat</td><td>-надцать</td><td>подросток</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Как устроен текст (и что легко проглядеть)</h2>
+    <p>Три части по семь глав — 21, возраст совершеннолетия; Бёрджесс строил книгу как роман о взрослении. Каждая часть начинается одной фразой — «What's it going to be then, eh?» («Ну, так что же теперь, а?») — вопрос о выборе, вынесенный в раму. Первая и третья части зеркальны: те же места и лица возвращаются перевёрнутыми.</p>
+    <p>Рассказывает сам герой — обаятельный, остроумный, музыкальный и беспощадный. Верить ему нельзя, и ваша симпатия к нему — часть ловушки: обращениями «O my brothers» он делает вас своим подельником. Следите за музыкой: Бетховен даёт герою что-то вроде души, а между реальными композиторами мелькают выдуманные — шутка Бёрджесса-музыканта. И не пропустите встроенное зеркало: в первой части герой встречает писателя, который пишет книгу под названием «Заводной апельсин», и зачитывает из неё фразу — по сути главный тезис романа.</p>
+
+    <h2>На что смотреть и что не понять неправильно</h2>
+    <p>Ключевые места, не раскрывая развязки: первая глава (в ней сразу весь язык и мир), эпизод с рукописью писателя, разговоры с тюремным священником во второй части, публичная «демонстрация» результата и, наконец, 21-я глава — прочтите её и сами решите, сильнее ли с ней книга.</p>
+    <p>Три частых недопонимания. Это не книга «про крутое насилие» — оно здесь нарочно гротескное и спрятано за языком. Алекс не бунтарь-романтик: вопрос не в том, прав ли он, а в том, вправе ли государство делать с ним то, что делает. И финал фильма — не финал книги: Кубрик остановился на двадцатой главе. Главное различение всего романа — «исправили» (снаружи), «исправился» (изнутри) и «повзрослел» — это разные вещи.</p>
+
+    <h2>Какой перевод и какую начитку брать</h2>
+    <p>Короткий ответ: читайте Владимира Бошняка. У него полные 21 глава, а надсат набран латиницей и склоняется по-русски (drugi, malltshipalltshiki) — решение, которое филологи считают самым верным замыслу: чуждость сохранена, а узнавание добавляет комизма. Это и фактический стандарт — десятки переизданий, сейчас в АСТ.</p>
+    <p>Перевод Евгения Синельщикова («Юность», 1991) сделан наоборот: русские слова заменены английскими в кириллице («молодой мэн в роговых глассиз»). По-своему живо, но сделан он по укороченному американскому тексту — 21-й главы там нет. Есть ещё тель-авивский «Механический апельсин» Газова-Гинзберга, тоже без последней главы. Вывод: Бошняк; если латиница совсем не идёт — Синельщиков, но финал всё равно прочтите у Бошняка.</p>
+    <p>Если слушаете:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Русские аудиоверсии</caption>
+        <thead><tr><th scope="col">Чтец</th><th scope="col">Перевод</th><th scope="col">Длит.</th><th scope="col">21-я глава</th></tr></thead>
+        <tbody>
+          <tr><td class="word">Михаил Горевой</td><td>Бошняк</td><td>7:33</td><td>есть</td></tr>
+          <tr><td class="word">Эдуард Чекмазов</td><td>Бошняк</td><td>6:28</td><td>есть</td></tr>
+          <tr><td class="word">Константин Третьяков</td><td>—</td><td>5:55</td><td>есть</td></tr>
+          <tr><td class="word">Н.-Т. Кобзев</td><td>Синельщиков</td><td>4:45</td><td>нет</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Для первого раза — Горевой: полный Бошняк, почти моноспектакль, и музыка в романе о музыке работает на смысл. Мешает музыка — берите Чекмазова. На слух, кстати, надсат легче: латиница в устах чтеца становится обычной русской речью.</p>
+
+    <h2>Фильм — и чего ждать от самого чтения</h2>
+    <p>Фильм Кубрика (1971) близок к тексту, но снят по двадцатиглавной версии, и у героя появилась фамилия DeLarge. Вопреки легенде, цензура его не запрещала — из британского проката его в 1973-м убрал сам Кубрик после угроз семье, и вернулся фильм только в 2000-м.</p>
+    <p>О чтении: роман короткий — около 200 страниц, 6–7,5 часа аудио, два-три вечера. Главная трудность — надсат первых двух-трёх глав, и для русского она меньше, чем для англичанина; через 20–30 страниц язык станет вашим. Первая часть шокирует (насилие стилизовано, но не смягчено, плюс неуютная собственная симпатия к рассказчику), вторая давит сочувствием и моральной путаницей. Здесь обычно и бросают — на стыке жаргона и жестокости. Продираться стоит: ради этого всё и написано. Книга взрослая, 18+.</p>
+
+    <section class="tldr" aria-label="Если коротко">
+      <h2>Если коротко</h2>
+      <ul>
+        <li>Берите перевод Бошняка: полные 21 глава и надсат латиницей. Слушаете — Горевой или Чекмазов. Синельщикова и его начитку пропустите: там нет последней главы.</li>
+        <li>Это не роман о насилии, а спор о свободе воли: лучше ли свободно выбранное зло, чем навязанное добро.</li>
+        <li>Не бросайте на жаргоне первых глав — через пару десятков страниц он станет своим. И обязательно прочтите 21-ю главу.</li>
+      </ul>
+    </section>
+
+    <p class="sign">Подходите к «Заводному апельсину» не как к истории о хулигане, а как к ловушке, расставленной на вас самих: дайте языку затянуть вас в банду, а обаянию Алекса — подкупить, а потом честно ответьте на вопрос, которым открывается каждая часть: «Ну, так что же теперь, а?»</p>
+
+  </article>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById("themeToggle");
+  function system(){return window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}
+  function current(){return root.getAttribute("data-theme")||system();}
+  function apply(t){root.setAttribute("data-theme",t);try{localStorage.setItem("theme",t);}catch(e){}}
+  try{var saved=localStorage.getItem("theme");if(saved==="dark"||saved==="light")root.setAttribute("data-theme",saved);}catch(e){}
+  if(btn)btn.addEventListener("click",function(){apply(current()==="dark"?"light":"dark");});
+})();
+</script>
+</body>
+</html>

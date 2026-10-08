@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>По ту сторону изгороди</title>
+<meta name="description" content="Разбор мини-сериала «Over the Garden Wall»: фигура Макхейла, фанатские теории и что происходит на самом деле.">
+<meta property="og:title" content="По ту сторону изгороди">
+<meta property="og:description" content="Разбор мини-сериала «Over the Garden Wall»: фигура Макхейла, фанатские теории и что происходит на самом деле.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap">
+</head>
+<body>
+<style>
+  /* Layout: одна колонка, книжная антиква на приглушённом пергаменте; ночная тема — лес после заката. Акцент — свет фонаря. */
+  :root{
+    --bg:#eae5d8; --surface:#f3efe4; --fg:#2a2621; --muted:#6f685a;
+    --accent:#b5771f; --accent-2:#4a5d4f; --rule:#d2cab7;
+    --glow:rgba(181,119,31,.14);
+    --display:"Prata",Georgia,"Times New Roman",serif;
+    --body:"PT Serif",Georgia,"Times New Roman",serif;
+    --util:"PT Sans","Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#191c18; --surface:#21251f; --fg:#e8e2d2; --muted:#9a9484;
+    --accent:#e0a94e; --accent-2:#8fae93; --rule:#343a31;
+    --glow:rgba(224,169,78,.10); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#191c18; --surface:#21251f; --fg:#e8e2d2; --muted:#9a9484;
+    --accent:#e0a94e; --accent-2:#8fae93; --rule:#343a31;
+    --glow:rgba(224,169,78,.10); color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--body); font-size:19px; line-height:1.75;
+    margin:0; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(130% 80% at 50% -10%, var(--glow), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:40rem; margin:0 auto; padding-block:3.2rem 4.5rem; padding-inline:20px}
+
+  /* шапка */
+  .eyebrow{font-family:var(--util); text-transform:uppercase; letter-spacing:.22em;
+    font-size:.72rem; font-weight:700; color:var(--accent); margin:0 0 1.1rem}
+  h1{font-family:var(--display); font-weight:400; line-height:1.05;
+    font-size:clamp(2.5rem,9vw,4rem); margin:0; text-wrap:balance; letter-spacing:.01em}
+  .lead{font-size:1.2rem; line-height:1.6; color:var(--fg); margin:1.6rem 0 0; text-wrap:pretty}
+  .meta{font-family:var(--util); font-size:.82rem; color:var(--muted);
+    margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center}
+  .meta b{font-weight:700; color:var(--fg)}
+  .rule{border:0; height:1px; background:var(--rule); margin:2.6rem 0}
+  .rule-orn{border:0; margin:3rem 0; text-align:center; color:var(--accent); font-size:1rem; letter-spacing:1.1em}
+  .rule-orn::before{content:"❦"}
+
+  h2{font-family:var(--display); font-weight:400; line-height:1.15;
+    font-size:clamp(1.55rem,5vw,2rem); margin:0 0 .2rem; text-wrap:balance}
+  .sec-no{font-family:var(--util); font-size:.74rem; font-weight:700; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--accent-2); display:block; margin-bottom:.5rem}
+  section{margin-top:3.4rem}
+  p{margin:1.1rem 0; text-wrap:pretty}
+  section > p:first-of-type{margin-top:1rem}
+  a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px}
+
+  .drop::first-letter{
+    font-family:var(--display); float:left; font-size:3.9rem; line-height:.78;
+    padding:.35rem .5rem 0 0; color:var(--accent);
+  }
+
+  strong{font-weight:700}
+  em{font-style:italic}
+
+  blockquote{margin:2.2rem 0; padding:0 0 0 1.3rem; border-left:3px solid var(--accent);
+    font-family:var(--display); font-weight:400; font-size:1.3rem; line-height:1.4; color:var(--fg)}
+  blockquote cite{display:block; margin-top:.7rem; font-family:var(--util); font-style:normal;
+    font-size:.82rem; letter-spacing:.04em; color:var(--muted)}
+
+  .theory{margin:1.6rem 0; padding:1.1rem 1.25rem; background:var(--surface);
+    border:1px solid var(--rule); border-radius:2px}
+  .theory h3{font-family:var(--util); font-size:1rem; font-weight:700; margin:0 0 .5rem; line-height:1.3}
+  .theory p{margin:.4rem 0; font-size:.98rem; line-height:1.6}
+  .verdict{font-family:var(--util); font-size:.7rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:.12em; display:inline-block; padding:.18rem .55rem; border-radius:2px; margin-bottom:.55rem}
+  .v-no{color:#fff; background:#a2412f}
+  .v-part{color:#3a2d12; background:var(--accent)}
+  .v-weak{color:var(--fg); background:transparent; border:1px solid var(--muted)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .v-no{background:#b85a44}}
+  :root[data-theme="dark"] .v-no{background:#b85a44}
+
+  .tldr{margin-top:3.6rem; padding:1.7rem 1.6rem; background:var(--surface);
+    border:1px solid var(--rule); border-radius:2px}
+  .tldr h2{font-size:1.4rem; margin-bottom:1rem}
+  .tldr ul{margin:0; padding:0; list-style:none; display:grid; gap:1rem}
+  .tldr li{padding-left:1.5rem; position:relative; font-size:1rem; line-height:1.55}
+  .tldr li::before{content:"✦"; position:absolute; left:0; top:0; color:var(--accent)}
+
+  footer{margin-top:3.4rem; font-family:var(--util); font-size:.8rem; color:var(--muted); line-height:1.6}
+
+  /* переключатель темы */
+  .toggle{position:fixed; top:env(safe-area-inset-top,0px); right:0; margin:14px 16px 0 0; z-index:5;
+    font-family:var(--util); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--surface); color:var(--fg); border:1px solid var(--rule);
+    border-radius:2px; padding:.5rem .7rem; cursor:pointer}
+  .toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+  .reveal{opacity:0; transform:translateY(14px); animation:rise .9s ease forwards}
+  .reveal.d1{animation-delay:.12s}.reveal.d2{animation-delay:.24s}.reveal.d3{animation-delay:.36s}
+  @keyframes rise{to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none; opacity:1; transform:none}}
+</style>
+
+<button class="toggle" id="themeBtn" aria-label="Переключить тему">Тема</button>
+
+<article class="wrap">
+  <header>
+    <p class="eyebrow reveal">Разбор без утайки</p>
+    <h1 class="reveal d1">По ту&nbsp;сторону изгороди</h1>
+    <p class="lead reveal d2">Вирт и Грег не умерли. Пока они тонут в пруду в хэллоуинскую ночь, их сознание проваливается в Неизвестность — место между жизнью и смертью, сном и явью. А главный враг сериала — вовсе не смерть, а отчаяние.</p>
+    <div class="meta reveal d3">
+      <span>мини-сериал <b>Патрика Макхейла</b>, 2014</span>
+      <span>·</span>
+      <span>Cartoon Network, 10 глав</span>
+      <span>·</span>
+      <span>≈ 13 минут чтения</span>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <span class="sec-no">Часть I</span>
+    <h2>Кто это сделал и из чего собран его мир</h2>
+    <p class="drop">Патрик Макхейл пришёл к «Изгороди» через «Флэпджека» и «Время приключений», где был креативным директором первых двух сезонов. О той работе он говорит скромно: его пальцы «были во всём, но рука никогда не погружалась в котёл целиком». Собственный сериал он задумал ещё в 2004-м, предлагал Cartoon Network как хэллоуинский спецвыпуск, а в 2013-м снял из этого замысла пилот «Tome of the Unknown».</p>
+    <p>Изначально антагонистом был дьявол по имени Старый Скрэтч, а братья странствовали по «Земле Междумирья» и собирали страницы книги забытых историй. Для сериала мотив «тома» убрали, дьявола и Лесоруба свели ближе друг к другу, а сюжет упростили до простейшего: двое заблудились и ищут дорогу домой. Макхейл планировал восемнадцать глав — бюджет и сроки ужали их до десяти.</p>
+    <p>Его мир собран из вещей, по которым тоскуешь, даже если никогда их не застал. Старая американская печатная графика и хэллоуинские открытки, иллюстрации Гюстава Доре, диснеевские «Silly Symphonies», опера и довоенный фолк, Том Уэйтс и пение Sacred Harp. Зверя озвучил оперный бас Сэмюэл Рэми — его голосом Макхейл заслушивался ещё школьником, катаясь на бабушкиной машине и слушая «дьявольскую музыку». Эта тоска по непрожитому и есть фирменный приём: всё в сериале будто вынуто из чужой, давно забытой памяти.</p>
+    <p>Позже Макхейл стал соавтором сценария и песен «Пиноккио» Гильермо дель Торо, а к десятилетию «Изгороди» снял с Aardman кукольную короткометражку. К «Полуночному евангелию» он, вопреки распространённому слуху, отношения не имеет.</p>
+  </section>
+
+  <hr class="rule-orn">
+
+  <section>
+    <span class="sec-no">Часть II</span>
+    <h2>Что такое Неизвестность</h2>
+    <p>Неизвестность — не ад и не чистилище в богословском смысле. По словам самого Макхейла, это «буквально неизвестное»: истории, которые когда-то рассказывали и которые исчезли навсегда, слова, сказанные и забытые, идеи, задуманные, но потерянные. Время здесь течёт вспять — чем дальше братья уходят от цели, тем глубже проваливаются в прошлое. Оттого и костюмы жителей из разных веков, и Облачный город как «время до времени».</p>
+
+    <blockquote>
+      Есть только я. Есть только мой путь. Есть только лес — и есть только сдача.
+      <cite>Зверь, седьмая глава</cite>
+    </blockquote>
+
+    <p>Зверь доводит заблудших до отчаяния, и они прорастают деревьями эдельвуд; из их масла горит фонарь, в котором — что выясняется под конец — заключена душа самого Зверя. Лесоруб рубит эдельвуд и питает этот фонарь, потому что Зверь внушил ему, будто в пламени живёт душа его погибшей дочери. Отсюда главный ключ ко всему сериалу: <strong>Зверь — это не смерть, а отчаяние</strong>. Депрессия, при которой воля сдаётся раньше тела. Недаром Лесоруб зовёт его «смертью надежды», а прозрение Вирта звучит буднично: «Похоже, твоя душа — в этом фонаре».</p>
+
+    <p>Синяя птица Беатрис — проводница, которая предаёт и раскаивается: она собиралась обменять братьев на волшебные ножницы, но в итоге спасает их. «Отчаявшиеся люди иногда делают плохое, — говорит о ней Макхейл, — но я вообще не считаю кого-либо, по сути, плохим человеком». Та же инверсия и в двух старухах: добрая Аделаида оказывается людоедкой со знаком чёрной вдовы на шали, а жуткая на вид тётушка Шёпот на деле изгоняет злого духа.</p>
+
+    <p>Даже мелочи работают на взросление. Грег без конца переименовывает лягушку — Джордж Вашингтон, Доктор Огурец, Бенджамин Франклин — пока Вирт наконец не даёт ей имя Джейсон Фандербёркер, в честь школьного соперника. Назвать лягушку именем соперника — значит примириться с реальностью. А городок Поттсфилд, где скелеты наряжены в тыквы и говорят «Вы что-то рановато», отсылает к «полю горшечника» — кладбищу для бедных и безымянных.</p>
+  </section>
+
+  <hr class="rule-orn">
+
+  <section>
+    <span class="sec-no">Часть III</span>
+    <h2>Фанатские теории и что с ними не так</h2>
+    <p>Сериал намеренно оставляет простор для толкований, и фанаты его охотно заполнили. Вот главные версии — и то, насколько каждая выдерживает проверку текстом.</p>
+
+    <div class="theory">
+      <span class="verdict v-no">Опровергнуто</span>
+      <h3>«Вирт и Грег мертвы»</h3>
+      <p>Опирается на пруд, Поттсфилд и мрачную гамму. Но финал прямо показывает: мальчики приходят в себя в больнице и разговаривают с Сарой. В отвергнутом варианте финала они садились в поезд, и зритель думал, что они умерли, — но поезд шёл «в Жизнь». От этого отказались: тема принятия собственной смерти «становится сложной для детского мультфильма».</p>
+    </div>
+
+    <div class="theory">
+      <span class="verdict v-part">Отчасти верно</span>
+      <h3>«Неизвестность — чистилище или лимб»</h3>
+      <p>В широком смысле — да: это пограничье «между жизнью/смертью/снами/реальностью», и братья попадают туда, спрыгнув с поезда, идущего «в Смерть». Но против католического чистилища говорит то, что Неизвестность продолжает жить и после ухода героев, и в ней нет покаянной иерархии. Ответ Макхейла «любая интерпретация, которая кажется людям верной, для меня законна» фанаты принимают за подтверждение — хотя он ничего не подтверждает.</p>
+    </div>
+
+    <div class="theory">
+      <span class="verdict v-part">Отчасти верно</span>
+      <h3>Дантовское прочтение</h3>
+      <p>Беатрис — это Беатриче, красный колпак Вирта — иконография Данте, тёмный лес — selva oscura. Это надёжные аллюзии. А вот поэпизодное соответствие девяти кругам ада — уже надстройка интерпретаторов. Сам Макхейл на одни догадки отвечал «Да, рад, что заметили!», а на другие — «это было не нарочно, но классная идея».</p>
+    </div>
+
+    <div class="theory">
+      <span class="verdict v-no">Описывает черновик, не сериал</span>
+      <h3>«Зверь — это Дьявол» / «Зверь и Лесоруб — одно лицо»</h3>
+      <p>Обе версии точно описывают историю замысла: Зверь и правда вырос из дьявола-искусителя и одно время был самим Лесорубом. Но в итоговом тексте это разные персонажи, а Лесоруб — невольный перевозчик света, служащий злу из любви. Его дочь жива — значит, Зверь лгал.</p>
+    </div>
+
+    <div class="theory">
+      <span class="verdict v-weak">Недоказуемо</span>
+      <h3>Точная дата — 31 октября 1980 года</h3>
+      <p>Выводят из кассеты, старых полицейских машин и паровоза. По календарю это и правда пятница, но в сериале дата нигде не названа. Важнее другое замечание Макхейла: даже современная обстановка Грега и Вирта, вероятно, тоже часть Неизвестности. Анахронизмы здесь — приём, а не зашифрованный календарь.</p>
+    </div>
+
+    <div class="theory">
+      <span class="verdict v-no">Опровергается</span>
+      <h3>«Всё было сном»</h3>
+      <p>Колокольчик, проглоченный лягушкой, светится уже в реальном мире, а финальный монтаж показывает, что Неизвестность существует и без наблюдателя. Это не сон, растаявший при пробуждении.</p>
+    </div>
+  </section>
+
+  <hr class="rule-orn">
+
+  <section>
+    <span class="sec-no">Часть IV</span>
+    <h2>Что происходит на самом деле</h2>
+    <p>Если собрать подтверждённое вместе, вырисовывается такая картина. Братья падают в пруд в хэллоуинскую ночь и остаются без сознания всё время путешествия. Неизвестность — <strong>реальное, но не загробное пограничье</strong>, куда сознание проваливается на грани смерти, и Вирт осмысляет его через доступные ему образы — «дурашливые мультяшные истории».</p>
+
+    <blockquote>
+      Он — смерть надежды.
+      <cite>Лесоруб о Звере</cite>
+    </blockquote>
+
+    <p>Главный конфликт идёт не между жизнью и смертью, а между волей к жизни и сдачей. Отвергнутый финал проговаривал это прямо: Вирт «подсознательно боролся с волей к жизни», потому что встретиться со своими проблемами наяву было для него страшнее смерти. В готовой версии смысл смягчён, но сохранён. Вирт спасается не тогда, когда побеждает чудовище, а когда берёт ответственность за брата, отказывается от сделки со Зверем и решается наконец дать Саре послушать ту самую кассету.</p>
+
+    <p>Так что «Изгородь» — это история взросления как выбора жизни, а вся пограничная мифология с фонарями и тыквенными скелетами — лишь её поэтическая форма. Макхейл оставил дверь для толкований открытой, но за ней не пусто: мальчики живы, лес реален ровно настолько, насколько реальны забытые истории, а главная победа сериала — победа воли к жизни над «прекраснейшей из всех лжи».</p>
+  </section>
+
+  <div class="tldr">
+    <h2>Если коротко</h2>
+    <ul>
+      <li>Никто не умер. Неизвестность — пограничье между жизнью и смертью, а не загробный мир; финал в больнице и светящийся колокольчик это доказывают.</li>
+      <li>Зверь — это отчаяние, а не смерть. Фонарь держит его собственную душу, и побеждает его не меч, а отказ сдаться.</li>
+      <li>Теория «они мертвы» и тождество Зверя с Лесорубом верны только для раннего черновика; дантовские аллюзии настоящие, а круги ада фанаты дорисовали сами.</li>
+    </ul>
+  </div>
+
+  <footer>
+    По мини-сериалу «Over the Garden Wall» (2014). Цитаты и слова Патрика Макхейла приводятся по его интервью.
+  </footer>
+</article>
+
+<script>
+  (function(){
+    var btn=document.getElementById('themeBtn');
+    var root=document.documentElement;
+    function sys(){return matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}
+    var cur;
+    try{cur=localStorage.getItem('otgw-theme')}catch(e){}
+    if(cur==='dark'||cur==='light')root.setAttribute('data-theme',cur);
+    function label(){
+      var active=root.getAttribute('data-theme')||sys();
+      btn.textContent=active==='dark'?'Светлая':'Тёмная';
+    }
+    label();
+    btn.addEventListener('click',function(){
+      var active=root.getAttribute('data-theme')||sys();
+      var next=active==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('otgw-theme',next)}catch(e){}
+      label();
+    });
+  })();
+</script>
+</body>
+</html>
